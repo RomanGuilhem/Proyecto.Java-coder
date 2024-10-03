@@ -3,10 +3,12 @@ package com.example.demo.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "ventas")
+@Table(name = "Ventas")
 
 public class Ventas {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String producto;
     private int cantidad;
@@ -38,7 +40,7 @@ public class Ventas {
         return precioTotal;
     }
 
-    public void setprecioTotal(double precioTotal) {
-
+    public void setprecioTotal(double preciototal) {
+        this.precioTotal=preciototal;
     }
 }

@@ -1,37 +1,36 @@
-INSERT INTO  Cliente (id, nombre, email) values{
+INSERT INTO  Cliente (id, nombre, email) VALUES
 
-(1, 'Lionel Messi', leomessi10@gmail.com),
+(1, 'Lionel Messi', 'leomessi10@gmail.com'),
 
-(2, 'Lautaro Martinez', toromartinez@gmail.com),
+(2, 'Lautaro Martinez', 'toromartinez@gmail.com'),
 
-(3, 'James Rodriguez', james_10_co@gmail.com),
+(3, 'James Rodriguez', 'james_10_co@gmail.com'),
 
-(4, 'Ousmane Dembele', Mosquito@hotmail.com),
+(4, 'Ousmane Dembele', 'Mosquito@hotmail.com'),
 
-(5, 'Hector Bellerin', hectorbellerin@gmail.com);
-}
+(5, 'Hector Bellerin', 'hectorbellerin@gmail.com');
 
-INSERT INTO  Producto (id, nombre, precio) values{
 
-(100, 'Heladera', $400000),
+INSERT INTO  Producto (id, nombre, precio) VALUES
 
-(200, 'Cafetera', $100000),
+(100, 'Heladera', 400000),
 
-(300, 'Licuadora', $50000),
+(200, 'Cafetera', 100000),
 
-(400, 'Microondas', $150000),
+(300, 'Licuadora', 50000),
 
-(500, 'Pava electrica', $80000);
-}
-INSERT INTO  Ventas (producto, cantidad, precioTotal) values{
+(400, 'Microondas', 150000),
 
-('Heladera', 1 , $400000),
+(500, 'Pava electrica', 80000);
 
-('Cafetera', 2 , $200000),
+INSERT INTO  Ventas (id, producto, cantidad, precioTotal) VALUES
 
-('Licuadora', 5 , $250000),
+(1000,'Heladera', 1 , 400000),
 
-('Microondas', 2 , $300000),
+(2002,'Cafetera', 2 , 200000),
 
-('Pava electrica', 3 , $240000),
-}
+(1004,'Licuadora', 5 , 250000),
+
+(1005,'Microondas', 2 , 300000),
+
+(1001,'Pava electrica', 3 , 240000);
