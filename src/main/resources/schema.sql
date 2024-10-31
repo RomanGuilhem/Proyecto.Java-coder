@@ -1,16 +1,16 @@
-DROP TABLE Cliente IF EXISTS;
+DROP TABLE Client IF EXISTS;
 
-CREATE TABLE Cliente (id INT,
+CREATE TABLE Client (id INT,
  nombre VARCHAR(150) NOT NULL,
   email  VARCHAR(150)  NOT NULL );
 
-  DROP TABLE Producto IF EXISTS;
+  DROP TABLE Product IF EXISTS;
 
-  CREATE TABLE Producto (id INT,
+  CREATE TABLE Product (id INT,
    nombre VARCHAR(150) NOT NULL,
     precio  INT  NOT NULL );
 
-    DROP TABLE Ventas IF EXISTS;
+    DROP TABLE Venta IF EXISTS;
 
     CREATE TABLE Ventas (id INT,
      producto VARCHAR(150) NOT NULL,

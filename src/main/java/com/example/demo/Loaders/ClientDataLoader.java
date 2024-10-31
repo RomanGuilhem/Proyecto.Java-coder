@@ -1,7 +1,7 @@
 package com.example.demo.Loaders;
 
-import com.example.demo.Entity.UserEntity;
-import com.example.demo.Service.UserService;
+import com.example.demo.Entity.Client;
+import com.example.demo.Service.ClientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,23 +12,23 @@ import java.util.UUID;
 @Component
 public class ClientDataLoader implements CommandLineRunner {
 
-    private final UserService userService;
+    private final ClientService clientService;
 
     @Autowired
-    public ClientDataLoader(UserService userService) {
-        this.userService = userService;
+    public ClientDataLoader(ClientService clientService) {
+        this.clientService = clientService;
     }
 
     @Override
     public void run(String... args) throws Exception {
         for (int i = 1; i <= 10; i++) {
-            UserEntity userEntity = new UserEntity();
-            userEntity.setId(UUID.randomUUID());
-            userEntity.setName("Client Name " + i);
-            userEntity.setDni(String.format("%08d", i * 12345));
-            userEntity.setEmail("client" + i + "@example.com");
+            Client client = new Client();
+            client.setId(UUID.randomUUID());
+            client.setName("Client Name " + i);
+            client.setDni(String.format("%08d", i * 12345)); // Example of a simple DNI pattern
+            client.setEmail("client" + i + "@example.com");
 
-            userService.saveUser(userEntity);
+            clientService.createClient(client);
         }
 
         System.out.println("10 Clients populated successfully!");
