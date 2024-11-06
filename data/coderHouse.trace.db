@@ -35,3 +35,7 @@ Syntax error in SQL statement "INSERT INTO Cliente (id, nombre, email) VALUES{ (
 org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'$400000' (PRODUCTO: ""PRECIO"" INTEGER NOT NULL)"
 Data conversion error converting "'$400000' (PRODUCTO: ""PRECIO"" INTEGER NOT NULL)"; SQL statement:
 INSERT INTO Producto (id, nombre, precio) VALUES (100, 'Heladera', '$400000'), (200, 'Cafetera', '$100000'), (300, 'Licuadora', '$50000'), (400, 'Microondas', '$150000'), (500, 'Pava electrica', '$80000') [22018-224]
+2024-11-06 15:53:25.783459-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "VENTAS" ya existe
+Table "VENTAS" already exists; SQL statement:
+CREATE TABLE Ventas (id INT, producto VARCHAR(150) NOT NULL, cantidad VARCHAR(150) NOT NULL, precioTotal INT NOT NULL ) [42101-224]

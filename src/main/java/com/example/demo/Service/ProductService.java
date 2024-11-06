@@ -1,15 +1,50 @@
 package com.example.demo.Service;
 
 import com.example.demo.Entity.Product;
+import com.example.demo.Repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
-public interface ProductService {
-    Product saveProduct(Product product);
-    Product getProductById(Integer id);
-    List<Product> getAllProducts();
-    Product updateProduct(Integer id, Product product);
-    Product partialUpdateProduct(Integer id, Map<String, Object> updates);
-    void deleteProduct(Integer id);
+@Service
+public class ProductService {
+
+    private final ProductRepository repository;
+
+    @Autowired
+    public ProductService(ProductRepository repository) {
+        this.repository = repository;
+    }
+
+    public Product save(Product product) {
+        return repository.save(product);
+    }
+
+    public List<Product> getProducts() {
+        return repository.findAll();
+    }
+
+    public Optional<Product> getById(Long id) {
+        return repository.findById(id);
+    }
+
+    public void deleteById(Long id) {
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+        } else {
+            throw new RuntimeException("Producto no encontrado con el ID: " + id);
+        }
+    }
+
+    public void updateProductStock(Product product) {
+        System.out.println("Actualizando stock para el producto ID: " + product.getId());
+        if (repository.existsById(product.getId())) {
+            repository.save(product);
+            System.out.println("Stock actualizado para el producto: " + product.getId());
+        } else {
+            throw new RuntimeException("Producto no encontrado con el ID: " + product.getId());
+        }
+    }
 }

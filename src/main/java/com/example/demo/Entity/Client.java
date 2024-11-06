@@ -1,32 +1,49 @@
 package com.example.demo.Entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.UUID;
 
 @Entity
 @Table(name = "clients")
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Client {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    @Column(length = 75, nullable = false)
+    @Column(length = 100, nullable = false)
     private String name;
 
-    @Column(length = 75, nullable = false)
-    private String lastname;
+    @Column(length = 100, nullable = false)
+    private String lastName;
 
-    @Column(length = 11, nullable = false, unique = true)
-    private String docnumber;
+    @Column(length = 100, nullable = false, unique = true)
+    private String email;
 
+    @Column(length = 12, nullable = false, unique = true)
+    private String dni;
 
+    @Column(length = 15)
+    private String phone;
+
+    public Client(UUID id, String name, String lastName, String email, String dni, String phone) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.dni = dni;
+        this.phone = phone;
+    }
+
+    public Client(UUID id, String name, String email, String dni) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.dni = dni;
+    }
 }
